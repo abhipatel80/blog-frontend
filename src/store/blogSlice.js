@@ -1,0 +1,142 @@
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from 'axios';
+
+const token = localStorage.getItem("token");
+
+const headers = {
+    "Authorization": `Bearer ${token}`
+}
+
+export const getBlogAsync = createAsyncThunk(
+    "blog/getblog",
+    async () => {
+        try {
+            const { data } = await axios.get("http://localhost:4000/blog/get");
+            return data;
+        } catch (e) {
+            return e;
+        }
+    }
+)
+
+export const searchBlogAsync = createAsyncThunk(
+    "blog/searchblog",
+    async (name) => {
+        try {
+            const { data } = await axios.get(`http://localhost:4000/blog/get?name=${name}`);
+            return data;
+        } catch (e) {
+            return e;
+        }
+    }
+)
+
+export const getSingleBlogAsync = createAsyncThunk(
+    "blog/getsingleblog",
+    async (id) => {
+        try {
+            const { data } = await axios.get(`http://localhost:4000/blog/get/${id}`);
+            return data;
+        } catch (e) {
+            return e;
+        }
+    }
+)
+
+export const getMyBlogAsync = createAsyncThunk(
+    "blog/getmyblog",
+    async (id) => {
+        try {
+            const { data } = await axios.get(`http://localhost:4000/blog/get/me/${id}`, { headers });
+            return data;
+        } catch (e) {
+            return e;
+        }
+    }
+)
+
+export const addBlogAsync = createAsyncThunk(
+    "blog/addblog",
+    async (formData) => {
+        try {
+            const { data } = await axios.post(`http://localhost:4000/blog/add`, formData, { headers });
+            return data;
+        } catch (e) {
+            return e.response.data;
+        }
+    }
+)
+
+export const deleteBlogAsync = createAsyncThunk(
+    "blog/deleteblog",
+    async ({ id, userId }) => {
+        console.log(id, userId);
+        try {
+            const { data } = await axios.delete(`http://localhost:4000/blog/delete/${id}/${userId}`, { headers });
+            console.log(data);
+            return data;
+        } catch (e) {
+            console.log(e);
+            return e;
+        }
+    }
+)
+
+export const editBlogAsync = createAsyncThunk(
+    "blog/editblog",
+    async ({ id, formData }) => {
+        try {
+            const { data } = await axios.put(`http://localhost:4000/blog/edit/${id}`, formData, { headers });
+            return data;
+        } catch (e) {
+            return e;
+        }
+    }
+)
+
+const blogSlice = createSlice({
+    name: "blog",
+    initialState: {
+        blogData: [],
+        loading: false,
+        singleBlog: {},
+        myBlog: [],
+        error: "",
+        searchData: [],
+    },
+    extraReducers: (builder) => {
+        builder.addCase(getBlogAsync.pending, (state, action) => {
+            state.loading = true;
+        })
+        builder.addCase(getBlogAsync.fulfilled, (state, action) => {
+            state.loading = false;
+            state.blogData = action.payload;
+        })
+        builder.addCase(getSingleBlogAsync.pending, (state, action) => {
+            state.loading = true;
+        })
+        builder.addCase(getSingleBlogAsync.fulfilled, (state, action) => {
+            state.loading = false;
+            state.singleBlog = action.payload;
+        })
+        builder.addCase(getMyBlogAsync.pending, (state, action) => {
+            state.loading = true;
+        })
+        builder.addCase(getMyBlogAsync.fulfilled, (state, action) => {
+            state.loading = false;
+            state.myBlog = action.payload;
+        })
+        builder.addCase(addBlogAsync.fulfilled, (state, action) => {
+            state.error = action.payload;
+        })
+        builder.addCase(searchBlogAsync.pending, (state, action) => {
+            state.loading = true;
+        })
+        builder.addCase(searchBlogAsync.fulfilled, (state, action) => {
+            state.loading = false;
+            state.searchData = action.payload;
+        })
+    }
+})
+
+export default blogSlice.reducer;
