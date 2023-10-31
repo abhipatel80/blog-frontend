@@ -7,11 +7,13 @@ const headers = {
     "Authorization": `Bearer ${token}`
 }
 
+export const url = "https://blogify-backend-me.vercel.app";
+
 export const getBlogAsync = createAsyncThunk(
     "blog/getblog",
     async () => {
         try {
-            const { data } = await axios.get("http://localhost:4000/blog/get");
+            const { data } = await axios.get(`${url}/blog/get`);
             return data;
         } catch (e) {
             return e;
@@ -23,7 +25,7 @@ export const searchBlogAsync = createAsyncThunk(
     "blog/searchblog",
     async (name) => {
         try {
-            const { data } = await axios.get(`http://localhost:4000/blog/get?name=${name}`);
+            const { data } = await axios.get(`${url}/blog/get?name=${name}`);
             return data;
         } catch (e) {
             return e;
@@ -35,7 +37,7 @@ export const getSingleBlogAsync = createAsyncThunk(
     "blog/getsingleblog",
     async (id) => {
         try {
-            const { data } = await axios.get(`http://localhost:4000/blog/get/${id}`);
+            const { data } = await axios.get(`${url}/blog/get/${id}`);
             return data;
         } catch (e) {
             return e;
@@ -47,7 +49,7 @@ export const getMyBlogAsync = createAsyncThunk(
     "blog/getmyblog",
     async (id) => {
         try {
-            const { data } = await axios.get(`http://localhost:4000/blog/get/me/${id}`, { headers });
+            const { data } = await axios.get(`${url}/blog/get/me/${id}`, { headers });
             return data;
         } catch (e) {
             return e;
@@ -59,7 +61,7 @@ export const addBlogAsync = createAsyncThunk(
     "blog/addblog",
     async (formData) => {
         try {
-            const { data } = await axios.post(`http://localhost:4000/blog/add`, formData, { headers });
+            const { data } = await axios.post(`${url}/blog/add`, formData, { headers });
             return data;
         } catch (e) {
             return e.response.data;
@@ -72,7 +74,7 @@ export const deleteBlogAsync = createAsyncThunk(
     async ({ id, userId }) => {
         console.log(id, userId);
         try {
-            const { data } = await axios.delete(`http://localhost:4000/blog/delete/${id}/${userId}`, { headers });
+            const { data } = await axios.delete(`${url}/blog/delete/${id}/${userId}`, { headers });
             console.log(data);
             return data;
         } catch (e) {
@@ -86,7 +88,7 @@ export const editBlogAsync = createAsyncThunk(
     "blog/editblog",
     async ({ id, formData }) => {
         try {
-            const { data } = await axios.put(`http://localhost:4000/blog/edit/${id}`, formData, { headers });
+            const { data } = await axios.put(`${url}/blog/edit/${id}`, formData, { headers });
             return data;
         } catch (e) {
             return e;

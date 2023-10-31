@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { url } from "./blogSlice";
 
 const token = localStorage.getItem("token");
 
@@ -11,7 +12,7 @@ export const addCommentAsync = createAsyncThunk(
     "comment/addcomment",
     async ({ comment, blogId }) => {
         try {
-            const { data } = await fetch("http://localhost:4000/blog/comment", {
+            const { data } = await fetch(`${url}/blog/comment`, {
                 method: "PUT",
                 headers,
                 body: JSON.stringify({ comment, blogId })
@@ -27,7 +28,7 @@ export const deleteCommentAsync = createAsyncThunk(
     "comment/deletecomment",
     async ({ blogId, commentId: id }) => {
         try {
-            const { data } = await fetch(`http://localhost:4000/blog/comment?blogId=${blogId}&id=${id}`, {
+            const { data } = await fetch(`${url}/blog/comment?blogId=${blogId}&id=${id}`, {
                 method: "DELETE",
                 headers,
             });
