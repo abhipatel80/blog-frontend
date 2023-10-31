@@ -24,7 +24,7 @@ const EditBlog = () => {
     formData.append("description", input.description);
 
     const { id } = useParams();
-
+ 
     const submit = (e) => {
         e.preventDefault();
         dispatch(editBlogAsync({ id, formData }));

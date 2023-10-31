@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { change } from '../../utils/change'
 import { useDispatch, useSelector } from 'react-redux';
 import { editUserAsync, getUserAsync } from '../../store/userSlice';
+import { url } from '../../store/blogSlice';
 
 const Profile = () => {
 
@@ -45,7 +46,7 @@ const Profile = () => {
           <div className='shadow-md md:w-[24rem] w-[20rem] px-10 rounded-md py-7 bg-white'>
             <div className='inputs'>
               {user?.image !== "/userImages/undefined" ?
-                <img src={`http://localhost:4000${user?.image}`} className='rounded-lg w-[11rem] h-[7rem] m-auto' alt="userProfile" /> :
+                <img src={`${url}/${user?.image}`} className='rounded-lg w-[11rem] h-[7rem] m-auto' alt="userProfile" /> :
                 <img src="/default-profile-img.jpg" alt="userProfile" className='rounded-full w-[8rem] h-[8rem] m-auto' />
               }
             </div>

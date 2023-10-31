@@ -82,7 +82,7 @@ const SingleBlog = () => {
                     <hr />
                     {data?.comments?.map((val) => {
                         return (
-                            <div className='border mt-5 p-4 rounded-md w-1/2' key={val._id}>
+                            <div className='border mt-5 p-4 rounded-md md:w-1/2 w-full' key={val._id}>
                                 <h2 className='font-semibold text-lg tracking-wide mb-1'>{val.name}
                                     <span className='text-sm ml-2 text-gray-600 font-light'>
                                         {dateFormat(val.createdAt)}
