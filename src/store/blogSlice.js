@@ -72,10 +72,8 @@ export const addBlogAsync = createAsyncThunk(
 export const deleteBlogAsync = createAsyncThunk(
     "blog/deleteblog",
     async ({ id, userId }) => {
-        console.log(id, userId);
         try {
             const { data } = await axios.delete(`${url}/blog/delete/${id}/${userId}`, { headers });
-            console.log(data);
             return data;
         } catch (e) {
             console.log(e);
