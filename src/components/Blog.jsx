@@ -46,7 +46,7 @@ const Blog = ({ data, loading }) => {
         return (
           <div className="justify-items-center grid my-10" key={val._id}>
             <div className="shadow-md bg-white md:w-4/6 w-full rounded-md p-7">
-              <h1 className="md:text-2xl text-lg font-semibold pb-4 flex">
+              <div className="md:text-2xl text-lg font-semibold pb-4 flex">
                 {val.title}
                 {location.pathname === "/myblog" ? (
                   <span className="ml-auto">
@@ -66,14 +66,18 @@ const Blog = ({ data, loading }) => {
                 ) : (
                   ""
                 )}
-              </h1>
+              </div>
               <h2 className="pb-4 text-sm md:text-lg text-gray-500">
-                {val.userName} <span className="pl-1 text-2xl"> · </span>{" "}
+                {val.userName}
+                <span className="pl-1 text-2xl"> · </span>{" "}
                 {dateFormat(val.createdAt)}
               </h2>
-              <p className="text-sm md:text-lg">
+              <div className="text-sm md:text-lg">
                 {parse(val.description.slice(0, 300))}
-              </p>
+                <span>
+                  {val.description.split("").length <= 300 ? "" : "..."}
+                </span>
+              </div>
               <NavLink to={`/${val._id}`}>
                 <button className="py-2 px-6 text-sm text-white hover:bg-purple-700 mt-5 bg-purple-600 rounded-md">
                   Read More

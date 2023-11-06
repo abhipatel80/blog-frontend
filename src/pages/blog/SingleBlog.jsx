@@ -104,13 +104,15 @@ const SingleBlog = () => {
         </div>
         <div className="shadow-md bg-white md:w-4/6 w-full rounded-md p-7 mt-10">
           <h2 className="text-2xl font-semibold mb-4">
-            Comments {data.totalComments}
+            {data.totalComments >= 1
+              ? `Comments (${data.totalComments})`
+              : "Comments"}
           </h2>
           <hr />
           {data?.comments?.map((val) => {
             return (
               <div
-                className="border mt-5 p-4 rounded-md md:w-1/2 w-full"
+                className="border mt-2 p-3 rounded-md md:w-1/2 w-full"
                 key={val._id}
               >
                 <h2 className="font-semibold text-lg tracking-wide mb-1">
@@ -118,24 +120,22 @@ const SingleBlog = () => {
                   <span className="text-sm ml-2 text-gray-600 font-light">
                     {dateFormat(val.createdAt)}
                   </span>
+                  {userId === val.userId ? (
+                    <button onClick={() => deleteComment(val._id)}>
+                      <i className="fa-solid fa-trash fa-md hover:text-red-600 ml-4"></i>
+                    </button>
+                  ) : (
+                    ""
+                  )}
                 </h2>
                 <p>{val.comment}</p>
-                {userId === val.userId ? (
-                  <button
-                    onClick={() => deleteComment(val._id)}
-                    className="py-2 px-4 text-white hover:bg-purple-700 text-sm mt-3 bg-purple-600 rounded-md"
-                  >
-                    Delete
-                  </button>
-                ) : (
-                  ""
-                )}
               </div>
             );
           })}
         </div>
       </div>
     </>
+    // className="py-2 px-4 text-white hover:bg-purple-700 text-sm mt-3 bg-purple-600 rounded-md"
   );
 };
 
