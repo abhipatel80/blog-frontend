@@ -18,13 +18,12 @@ const AddBlog = () => {
   const navigate = useNavigate();
   const { error } = useSelector((state) => state.blog);
 
-  const formData = new FormData();
-  formData.append("file", blogImage);
-  formData.append("title", input.title);
-  formData.append("description", input.description);
-
   const submit = (e) => {
     e.preventDefault();
+    const formData = new FormData();
+    formData.append("file", blogImage);
+    formData.append("title", input.title);
+    formData.append("description", input.description);
     dispatch(addBlogAsync(formData));
     if (typeof error !== "string") {
       navigate("/");
