@@ -33,7 +33,7 @@ const Login = () => {
 
     return (
         <>
-            <div className='grid justify-center items-center w-full h-[77vh] m-10 mt-20'>
+            <div className='grid justify-center items-center h-[77vh] m-10 mt-20'>
                 <form onSubmit={submit} className='shadow-lg md:w-[24rem] w-[18rem] px-10 rounded-md py-7 bg-white'>
                     <p className='text-red-600'>{typeof error === "string" ? error : ""}</p>
                     <div className='inputs'>

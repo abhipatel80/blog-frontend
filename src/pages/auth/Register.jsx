@@ -41,7 +41,7 @@ const Register = () => {
 
   return (
     <>
-      <div className="grid items-center w-full justify-center h-[77vh] m-10 mt-20">
+      <div className="grid items-center justify-center h-[77vh] m-10 mt-20">
         <form
           onSubmit={submit}
           className="shadow-lg md:w-[24rem] w-[18rem] px-10 rounded-md py-7 bg-white"
