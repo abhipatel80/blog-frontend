@@ -135,7 +135,6 @@ const SingleBlog = () => {
         </div>
       </div>
     </>
-    // className="py-2 px-4 text-white hover:bg-purple-700 text-sm mt-3 bg-purple-600 rounded-md"
   );
 };
 

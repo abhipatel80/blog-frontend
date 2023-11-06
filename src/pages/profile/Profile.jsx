@@ -40,9 +40,9 @@ const Profile = () => {
   return (
     <div className="mt-24">
       <div className="content-div">
-        <div className="grid justify-items-center items-center m-10">
+        <div className="grid justify-center items-center m-10">
           <h2 className="text-2xl mb-4">Welcome, {user?.name}</h2>
-          <div className="shadow-md md:w-[24rem] w-[20rem] px-10 rounded-md py-7 bg-white">
+          <div className="shadow-md md:w-[24rem] w-[18rem] px-10 rounded-md py-7 bg-white">
             <div className="inputs">
               {user?.image !== "/userImages/undefined" ? (
                 <img

@@ -5,6 +5,7 @@ import { deleteBlogAsync } from "../store/blogSlice";
 import { useDispatch } from "react-redux";
 import parse from "html-react-parser";
 import Loading from "./Loading";
+import NoBlog from "./NoBlog";
 
 const Blog = ({ data, loading }) => {
   const location = useLocation();
@@ -28,16 +29,7 @@ const Blog = ({ data, loading }) => {
   }
 
   if (data.length <= 0) {
-    return (
-      <div className="bg-white w-[50rem] mx-auto h-[30rem] flex items-center justify-center rounded-md shadow-lg mt-28">
-        <h2 className="text-center text-3xl">No Blog Found</h2>
-        <NavLink to="/" className="mt-32 absolute">
-          <button className="py-1.5 px-6 text-md text-white hover:bg-purple-700 bg-purple-600 rounded-md">
-            Home
-          </button>
-        </NavLink>
-      </div>
-    );
+    return <NoBlog msg="No blog found" />;
   }
 
   return (
