@@ -5,7 +5,7 @@ const NoBlog = ({ msg }) => {
   return (
     <div
       className="bg-white md:w-[50rem] w-[18rem] h-[11rem] mx-auto md:h-[30rem] flex items-center justify-center rounded-md 
-    shadow-lg md:mt-28 mt-16"
+    shadow-lg md:mt-28 mt-20"
     >
       <h2 className="text-center md:text-3xl text-base">{msg}</h2>
       <NavLink to="/" className="md:mt-32 mt-24 absolute">
