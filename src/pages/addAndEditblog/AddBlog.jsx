@@ -74,7 +74,7 @@ const AddBlog = () => {
             />
           </div>
           <div className="inputs">
-            <label htmlFor="description">Description</label>
+            <h2 className="description">Description</h2>
             <div className="mt-2 mb-2">
               <CKEditor
                 onChange={(e, editor) => editorchange(e, editor)}

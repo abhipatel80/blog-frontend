@@ -25,7 +25,10 @@ body {
   margin-top: 10px;
   margin-bottom: -4px;
 }
-
+.description{
+  margin-top: 10px;
+  margin-bottom: -4px;
+}
 .radio {
   margin-right: 12px;
   margin-left: -4px;
