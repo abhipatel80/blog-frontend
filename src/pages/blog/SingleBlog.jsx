@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { getSingleBlogAsync, url } from "../../store/blogSlice";
+import { getSingleBlogAsync } from "../../store/blogSlice";
 import { dateFormat } from "../../utils/dateFormat";
 import { addCommentAsync, deleteCommentAsync } from "../../store/commentSlice";
 import parse from "html-react-parser";
@@ -63,7 +63,7 @@ const SingleBlog = () => {
             {dateFormat(data.createdAt)}
           </h2>
           <div className="justify-items-center grid m-8">
-            {data?.blogImage !== "undefined" ? (
+            {data?.blogImage?.startsWith("https") ? (
               <img
                 src={`${data.blogImage}`}
                 alt="blog"

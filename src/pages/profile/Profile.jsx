@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { change } from "../../utils/change";
 import { useDispatch, useSelector } from "react-redux";
 import { editUserAsync, getUserAsync } from "../../store/userSlice";
-import { url } from "../../store/blogSlice";
 
 const Profile = () => {
   const { activeUser: user } = useSelector((state) => state.user);
@@ -44,9 +43,9 @@ const Profile = () => {
           <h2 className="text-2xl mb-4">Welcome, {user?.name}</h2>
           <div className="shadow-md md:w-[24rem] w-[18rem] px-10 rounded-md py-7 bg-white">
             <div className="inputs">
-              {user?.image !== "/userImages/undefined" ? (
+              {user?.image?.startsWith("https") ? (
                 <img
-                  src={`${url}${user?.image}`}
+                  src={`${user?.image}`}
                   className="rounded-lg w-[11rem] h-[7rem] m-auto"
                   alt="userProfile"
                 />
