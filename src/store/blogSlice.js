@@ -7,7 +7,8 @@ const headers = {
     "Authorization": `Bearer ${token}`
 }
 
-export const url = "https://blogify-backend-me.vercel.app";
+// export const url = "https://blogify-backend-me.vercel.app";
+export const url = "http://localhost:4000";
 
 export const getBlogAsync = createAsyncThunk(
     "blog/getblog",

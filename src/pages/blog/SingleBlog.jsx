@@ -63,9 +63,9 @@ const SingleBlog = () => {
             {dateFormat(data.createdAt)}
           </h2>
           <div className="justify-items-center grid m-8">
-            {data?.blogImage !== "/files/undefined" ? (
+            {data?.blogImage !== "undefined" ? (
               <img
-                src={`${url}${data.blogImage}`}
+                src={`${data.blogImage}`}
                 alt="blog"
                 className="md:w-2/3 rounded-md"
               />
