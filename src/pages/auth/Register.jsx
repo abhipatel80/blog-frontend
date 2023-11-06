@@ -41,10 +41,10 @@ const Register = () => {
 
   return (
     <>
-      <div className="grid justify-items-center items-center w-full justify-center h-[77vh] m-10 mt-20">
+      <div className="grid items-center w-full justify-center h-[77vh] m-10 mt-20">
         <form
           onSubmit={submit}
-          className="shadow-lg md:w-[24rem] min-w-[18rem] px-10 rounded-md py-7 bg-white"
+          className="shadow-lg md:w-[24rem] w-[18rem] px-10 rounded-md py-7 bg-white"
         >
           <p className="text-red-600">
             {typeof error === "string" ? error : ""}
