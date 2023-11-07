@@ -17,6 +17,7 @@ body {
   display: flex;
   flex-direction: column;
 }
+
 .ck-editor__editable_inline {
   height: 200px;
 }

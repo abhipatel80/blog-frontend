@@ -97,6 +97,9 @@ const AddBlog = () => {
               id="blogImage"
             />
           </div>
+          <p className="md:text-sm text-xs">
+            Upload an image (JPG or PNG) with a maximum size of 2 MB.
+          </p>
           <button
             type="submit"
             className="bg-purple-600 hover:bg-purple-700 text-white px-5 py-1.5 
