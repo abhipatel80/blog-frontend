@@ -56,7 +56,7 @@ const AddBlog = () => {
       <div className="grid justify-items-center items-center m-10 mt-28">
         <form
           onSubmit={submit}
-          className="md:shadow-lg shadow-md lg:max-w-[40rem] md:max-w-[30rem] sm:max-w-[25rem] max-w-[20rem] px-10 rounded-md py-7 bg-white"
+          className="md:shadow-lg shadow-md lg:max-w-[40rem] md:max-w-[30rem] sm:max-w-[25rem] max-w-[17rem] px-10 rounded-md py-7 bg-white"
         >
           <p className="text-red-600">
             {typeof error === "string" ? error : ""}
