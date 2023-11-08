@@ -102,9 +102,8 @@ const blogSlice = createSlice({
     loading: false,
     singleBlog: {},
     myBlog: [],
-    error: "",
+    error: null,
     searchData: [],
-    newBlog: false,
   },
   extraReducers: (builder) => {
     builder.addCase(getBlogAsync.pending, (state, action) => {
@@ -131,15 +130,8 @@ const blogSlice = createSlice({
       state.myBlog = action.payload;
     });
 
-    builder.addCase(addBlogAsync.pending, (state, action) => {
-      state.newBlog = false;
-    });
     builder.addCase(addBlogAsync.fulfilled, (state, action) => {
-      state.newBlog = true;
       state.error = action.payload;
-    });
-    builder.addCase(addBlogAsync.rejected, (state, action) => {
-      state.newBlog = false;
     });
 
     builder.addCase(searchBlogAsync.pending, (state, action) => {
