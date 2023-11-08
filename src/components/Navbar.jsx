@@ -26,7 +26,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav className="shadow-md bg-white fixed top-0 w-full">
+      <nav className="shadow-md bg-white fixed top-0 w-full z-50">
         <ul className="flex p-3">
           <NavLink to="/" className="">
             <h2 className="md:text-2xl text-xl md:ml-4 ml-0 cursor-pointer md:mr-4 mr-3 mt-1">

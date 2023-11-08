@@ -25,8 +25,8 @@ const AddBlog = () => {
     formData.append("title", input.title);
     formData.append("description", input.description);
     dispatch(addBlogAsync(formData));
-    if (newBlog === true) {
-      navigate("/");
+    if (newBlog === true || typeof error !== "string") {
+      navigate("/myblog");
     }
   };
 
@@ -56,7 +56,7 @@ const AddBlog = () => {
       <div className="grid justify-center items-center m-10 mt-28">
         <form
           onSubmit={submit}
-          className="md:shadow-lg shadow-md lg:max-w-[40rem] md:max-w-[30rem] sm:max-w-[25rem] max-w-[15rem] px-10 rounded-md py-7 bg-white"
+          className="md:shadow-lg shadow-md lg:w-[40rem] md:w-[30rem] sm:w-[25rem] w-[15rem] px-10 rounded-md py-7 bg-white"
         >
           <p className="text-red-600">
             {typeof error === "string" ? error : ""}
@@ -102,7 +102,7 @@ const AddBlog = () => {
           </p>
           <button
             type="submit"
-            className="bg-purple-600 hover:bg-purple-700 text-white px-5 py-1.5 
+            className="bg-purple-600 hover:bg-purple-700 md:text-base text-sm text-white px-5 py-1.5 
           rounded-md cursor-pointer mt-4"
           >
             Add Blog
