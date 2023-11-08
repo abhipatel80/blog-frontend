@@ -1,8 +1,8 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Suspense, lazy } from 'react';
-import Navbar from './components/Navbar';
-import Loading from './components/Loading';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Suspense, lazy } from "react";
+import Navbar from "./components/Navbar";
+import Loading from "./components/Loading";
+import "./App.css";
 
 const BlogPost = lazy(() => import("./pages/blog/BlogPost"));
 const MyBlog = lazy(() => import("./pages/blog/MyBlog"));
