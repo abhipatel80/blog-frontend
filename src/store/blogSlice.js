@@ -102,7 +102,7 @@ const blogSlice = createSlice({
     loading: false,
     singleBlog: {},
     myBlog: [],
-    error: null,
+    error: "",
     searchData: [],
   },
   extraReducers: (builder) => {
