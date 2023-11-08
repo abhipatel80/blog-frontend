@@ -71,7 +71,7 @@ const Blog = ({ data, loading }) => {
                 </span>
               </div>
               <NavLink to={`/${val._id}`}>
-                <button className="py-2 px-6 text-sm text-white hover:bg-purple-700 mt-5 bg-purple-600 rounded-md">
+                <button className="py-2 px-6 text-sm text-white hover:bg-purple-700 mt-2 bg-purple-600 rounded-md">
                   Read More
                 </button>
               </NavLink>

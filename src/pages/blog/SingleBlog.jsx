@@ -58,10 +58,23 @@ const SingleBlog = () => {
           <h1 className="md:text-2xl text-lg font-semibold pb-1 text-center">
             {data?.title}
           </h1>
-          <h2 className="text-center text-sm md:text-lg text-gray-500">
-            {data.userName} <span className="pl-1 text-2xl"> · </span>{" "}
-            {dateFormat(data.createdAt)}
-          </h2>
+          <div className="text-center flex text-sm md:text-lg text-gray-500">
+            {data?.userId?.image?.startsWith("https") ? (
+              <img
+                src={`${data.userId?.image}`}
+                alt="user"
+                className="md:w-12 w-10 md:h-12 h-10 rounded-full"
+              />
+            ) : (
+              <img
+                src="/default-profile-img.png"
+                alt="user"
+                className="md:w-12 w-10 md:h-12 h-10 rounded-full"
+              />
+            )}
+            <p>{data.userName}</p>
+            <p className="pl-1 text-2xl"> · {dateFormat(data.createdAt)}</p>
+          </div>
           <div className="justify-items-center grid m-8">
             {data?.blogImage?.startsWith("https") ? (
               <img
