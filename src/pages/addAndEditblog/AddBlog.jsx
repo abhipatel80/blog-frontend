@@ -16,7 +16,7 @@ const AddBlog = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { error } = useSelector((state) => state.blog);
+  const { error, newBlog } = useSelector((state) => state.blog);
 
   const submit = (e) => {
     e.preventDefault();
@@ -25,7 +25,7 @@ const AddBlog = () => {
     formData.append("title", input.title);
     formData.append("description", input.description);
     dispatch(addBlogAsync(formData));
-    if (typeof error !== "string") {
+    if (newBlog === true) {
       navigate("/");
     }
   };
